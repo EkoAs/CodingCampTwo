@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Components Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-code text-white text-2xl"></i>
+                    <span class="text-white font-bold text-xl">TailwindUI</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-8">
+                    <a href="#buttons" class="text-white hover:text-blue-200 transition">Buttons</a>
+                    <a href="#cards" class="text-white hover:text-blue-200 transition">Cards</a>
+                    <a href="#forms" class="text-white hover:text-blue-200 transition">Forms</a>
+                    <a href="#alerts" class="text-white hover:text-blue-200 transition">Alerts</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#buttons" class="block text-white hover:bg-blue-700 px-4 py-2 rounded transition">Buttons</a>
+                <a href="#cards" class="block text-white hover:bg-blue-700 px-4 py-2 rounded transition">Cards</a>
+                <a href="#forms" class="block text-white hover:bg-blue-700 px-4 py-2 rounded transition">Forms</a>
+                <a href="#alerts" class="block text-white hover:bg-blue-700 px-4 py-2 rounded transition">Alerts</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="fixed left-0 top-16 h-screen w-64 bg-gray-900 text-white transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 overflow-y-auto">
+            <div class="p-6">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-list"></i>
+                    Navigation
+                </h2>
+                <ul class="space-y-3">
+                    <li><a href="#" class="flex items-center gap-3 p-3 rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a></li>
+                    <li><a href="#" class="flex items-center gap-3 p-3 rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-user"></i> Profile
+                    </a></li>
+                    <li><a href="#" class="flex items-center gap-3 p-3 rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-cog"></i> Settings
+                    </a></li>
+                    <li><a href="#" class="flex items-center gap-3 p-3 rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-bell"></i> Notifications
+                    </a></li>
+                    <li><a href="#" class="flex items-center gap-3 p-3 rounded hover:bg-gray-800 transition">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar Toggle Button (Mobile) -->
+        <button id="sidebarToggle" class="fixed bottom-6 right-6 md:hidden bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition z-30">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="flex-1 md:ml-0 p-6 md:p-8">
+            <div class="max-w-6xl mx-auto space-y-12">
+
+                <!-- Buttons Section -->
+                <section id="buttons" class="scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-square"></i> Button Styles
+                    </h2>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Primary Button -->
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-check"></i> Primary
+                            </button>
+
+                            <!-- Secondary Button -->
+                            <button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-info-circle"></i> Secondary
+                            </button>
+
+                            <!-- Success Button -->
+                            <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-check-circle"></i> Success
+                            </button>
+
+                            <!-- Danger Button -->
+                            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-trash"></i> Danger
+                            </button>
+
+                            <!-- Warning Button -->
+                            <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-exclamation"></i> Warning
+                            </button>
+
+                            <!-- Outline Button -->
+                            <button class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                                <i class="fas fa-star"></i> Outline
+                            </button>
+
+                            <!-- Gradient Button -->
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-rocket"></i> Gradient
+                            </button>
+
+                            <!-- Small Button -->
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded text-sm transition flex items-center justify-center gap-2">
+                                <i class="fas fa-plus"></i> Small
+                            </button>
+
+                            <!-- Large Button -->
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-download"></i> Large
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cards Section -->
+                <section id="cards" class="scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-layer-group"></i> Card Components
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Basic Card -->
+                        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-star text-yellow-500 text-2xl"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Basic Card</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">This is a simple card component with hover effect.</p>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">Learn More</button>
+                        </div>
+
+                        <!-- Feature Card -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-blue-600">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-lightning-bolt text-blue-600 text-2xl"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Feature Card</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Enhanced card with gradient background and left border.</p>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">Explore</button>
+                        </div>
+
+                        <!-- Stats Card -->
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-center">
+                                <i class="fas fa-chart-bar text-green-500 text-4xl mb-3"></i>
+                                <h3 class="text-3xl font-bold text-gray-800">1,234</h3>
+                                <p class="text-gray-600 mt-2">Total Users</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Forms Section -->
+                <section id="forms" class="scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-clipboard"></i> Form Elements
+                    </h2>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <form class="space-y-6">
+                            <!-- Text Input -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i class="fas fa-user mr-2 text-blue-600"></i>Full Name
+                                </label>
+                                <input type="text" placeholder="Enter your name" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition">
+                            </div>
+
+                            <!-- Email Input -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i class="fas fa-envelope mr-2 text-blue-600"></i>Email
+                                </label>
+                                <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition">
+                            </div>
+
+                            <!-- Select -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i class="fas fa-globe mr-2 text-blue-600"></i>Country
+                                </label>
+                                <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition bg-white">
+                                    <option>Select a country</option>
+                                    <option>United States</option>
+                                    <option>Canada</option>
+                                    <option>United Kingdom</option>
+                                </select>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="ml-3 text-gray-700 font-medium">
+                                        <i class="fas fa-check-square mr-2 text-blue-600"></i>I agree to terms and conditions
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- Radio Buttons -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                    <i class="fas fa-list mr-2 text-blue-600"></i>Choose an option
+                                </label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="option" class="w-4 h-4 text-blue-600">
+                                        <span class="ml-3 text-gray-700">Option 1</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="option" class="w-4 h-4 text-blue-600">
+                                        <span class="ml-3 text-gray-700">Option 2</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Textarea -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    <i class="fas fa-comments mr-2 text-blue-600"></i>Message
+                                </label>
+                                <textarea placeholder="Enter your message..." rows="4" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"></textarea>
+                            </div>
+
+                            <!-- Form Buttons -->
+                            <div class="flex gap-4 pt-4">
+                                <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                                    <i class="fas fa-paper-plane"></i> Submit
+                                </button>
+                                <button type="reset" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                                    <i class="fas fa-redo"></i> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Alerts Section -->
+                <section id="alerts" class="scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fas fa-bell"></i> Alert Components
+                    </h2>
+                    <div class="space-y-4">
+                        <!-- Success Alert -->
+                        <div class="bg-green-50 border-l-4 border-green-600 p-4 rounded flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-green-800">Success!</h3>
+                                <p class="text-green-700">Your operation completed successfully.</p>
+                            </div>
+                            <button class="ml-auto text-green-600 hover:text-green-800">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <!-- Info Alert -->
+                        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded flex items-start gap-3">
+                            <i class="fas fa-info-circle text-blue-600 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-blue-800">Information</h3>
+                                <p class="text-blue-700">This is an informational message for you.</p>
+                            </div>
+                            <button class="ml-auto text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <!-- Warning Alert -->
+                        <div class="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded flex items-start gap-3">
+                            <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-yellow-800">Warning</h3>
+                                <p class="text-yellow-700">Please be careful with this action.</p>
+                            </div>
+                            <button class="ml-auto text-yellow-600 hover:text-yellow-800">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <!-- Error Alert -->
+                        <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded flex items-start gap-3">
+                            <i class="fas fa-times-circle text-red-600 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-red-800">Error</h3>
+                                <p class="text-red-700">Something went wrong. Please try again.</p>
+                            </div>
+                            <button class="ml-auto text-red-600 hover:text-red-800">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sidebar Toggle
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Auto-close sidebar when clicking on a link
+        const sidebarLinks = sidebar.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+            });
+        });
+
+        // Auto-close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Alert close buttons
+        document.querySelectorAll('[class*="border-l-4"]').forEach(alert => {
+            const closeBtn = alert.querySelector('button');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    alert.style.display = 'none';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
